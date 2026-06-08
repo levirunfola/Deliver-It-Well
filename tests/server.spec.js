@@ -37,4 +37,14 @@ describe('server/app.js', function() {
       done();
     });
   });
+
+   it('page says GoodBye', (done) => {
+  chai.request(server)
+    .get('/')
+    .end((err, res) => {
+      expect(err).not.exist;
+      expect(JSON.stringify(res.text)).to.contain('GoodBye');
+      done();
+    });
+  });
 })
